@@ -1,3 +1,4 @@
+import asyncio
 from mcp.server.fastmcp import FastMCP
 
 from bcra_mcp.tools import variables, cambiarias, deudores, cheques, transparencia
@@ -6,7 +7,6 @@ mcp = FastMCP("mcp-bcra")
 
 
 # --- Variables Monetarias ---
-
 
 @mcp.tool()
 async def bcra_variables_principales() -> str:
@@ -31,7 +31,6 @@ async def bcra_variable_historico(id_variable: int, desde: str, hasta: str) -> s
 
 # --- Estadísticas Cambiarias ---
 
-
 @mcp.tool()
 async def bcra_tipos_de_cambio() -> str:
     """Lista todos los tipos de cambio disponibles en el BCRA (BNA, MEP, CCL, etc.)."""
@@ -52,7 +51,6 @@ async def bcra_cotizacion(fecha: str, tipo_cambio: str = "BNA") -> str:
 
 
 # --- Central de Deudores ---
-
 
 @mcp.tool()
 async def bcra_deudores(identificacion: str) -> str:
@@ -78,7 +76,6 @@ async def bcra_deudores_historico(identificacion: str) -> str:
 
 # --- Cheques ---
 
-
 @mcp.tool()
 async def bcra_entidades_cheques() -> str:
     """Lista todas las entidades financieras habilitadas para consulta de cheques."""
@@ -98,9 +95,7 @@ async def bcra_cheques_rechazados(cuit: str) -> str:
 
 
 @mcp.tool()
-async def bcra_cheque_por_numero(
-    codigo_entidad: int, numero_cheque: int, denunciado: bool = False
-) -> str:
+async def bcra_cheque_por_numero(codigo_entidad: int, numero_cheque: int, denunciado: bool = False) -> str:
     """Busca un cheque específico por entidad y número.
 
     Args:
@@ -113,7 +108,6 @@ async def bcra_cheque_por_numero(
 
 
 # --- Régimen de Transparencia ---
-
 
 @mcp.tool()
 async def bcra_entidades_financieras() -> str:
