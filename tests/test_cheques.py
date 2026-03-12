@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import AsyncMock, patch
-from bcra_mcp.tools.cheques import get_entidades, get_cheques_rechazados, get_cheque_por_numero
+from bcra_mcp.tools.cheques import get_entidades, get_cheque
 
 MOCK_ENTIDADES = {
     "status": 200,
@@ -10,15 +10,27 @@ MOCK_ENTIDADES = {
     ],
 }
 
-MOCK_CHEQUES = {"status": 200, "results": {"numeroCuenta": "0", "causal": "0", "cheques": []}}
-
-MOCK_CHEQUE = {
+MOCK_CHEQUE_DENUNCIADO = {
     "status": 200,
     "results": {
-        "numeroCheque": 12345678,
-        "codigoEntidad": 11,
-        "denominacion": "BANCO DE LA NACION ARGENTINA",
-        "causal": "2",
+        "numeroCheque": 20377516,
+        "denunciado": True,
+        "fechaProcesamiento": "2024-05-24",
+        "denominacionEntidad": "BANCO DE LA NACION ARGENTINA",
+        "detalles": [
+            {"sucursal": 524, "numeroCuenta": 5240055962, "causal": "Denunciado por tercero"}
+        ],
+    },
+}
+
+MOCK_CHEQUE_NO_DENUNCIADO = {
+    "status": 200,
+    "results": {
+        "numeroCheque": 203775991,
+        "denunciado": False,
+        "fechaProcesamiento": "2024-05-24",
+        "denominacionEntidad": "BANCO DE LA NACION ARGENTINA",
+        "detalles": [],
     },
 }
 
@@ -32,14 +44,15 @@ async def test_get_entidades():
 
 
 @pytest.mark.asyncio
-async def test_get_cheques_rechazados():
-    with patch("bcra_mcp.tools.cheques.get", new=AsyncMock(return_value=MOCK_CHEQUES)):
-        result = await get_cheques_rechazados("20123456789")
+async def test_get_cheque_denunciado():
+    with patch("bcra_mcp.tools.cheques.get", new=AsyncMock(return_value=MOCK_CHEQUE_DENUNCIADO)):
+        result = await get_cheque(11, 20377516)
         assert result["status"] == 200
+        assert result["results"]["denunciado"] is True
 
 
 @pytest.mark.asyncio
-async def test_get_cheque_por_numero():
-    with patch("bcra_mcp.tools.cheques.get", new=AsyncMock(return_value=MOCK_CHEQUE)):
-        result = await get_cheque_por_numero(11, 12345678)
-        assert result["results"]["numeroCheque"] == 12345678
+async def test_get_cheque_no_denunciado():
+    with patch("bcra_mcp.tools.cheques.get", new=AsyncMock(return_value=MOCK_CHEQUE_NO_DENUNCIADO)):
+        result = await get_cheque(11, 203775991)
+        assert result["results"]["denunciado"] is False
