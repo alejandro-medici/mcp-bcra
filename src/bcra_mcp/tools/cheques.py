@@ -16,7 +16,9 @@ async def get_cheques_rechazados(cuit: str) -> dict:
     return await get(f"/cheques/v1.0/denunciados/{cuit}/0")
 
 
-async def get_cheque_por_numero(codigo_entidad: int, numero_cheque: int, denunciado: bool = False) -> dict:
+async def get_cheque_por_numero(
+    codigo_entidad: int, numero_cheque: int, denunciado: bool = False
+) -> dict:
     """
     Busca un cheque por entidad y número.
 
