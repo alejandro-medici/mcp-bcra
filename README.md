@@ -1,27 +1,45 @@
 # mcp-bcra
 
-MCP server for Argentina's Central Bank (BCRA) APIs. Enables AI agents to access financial data including exchange rates, monetary variables, debtor registry, and more.
+MCP server for Argentina's Central Bank (BCRA) public APIs. Enables AI agents to access financial data including exchange rates, monetary variables, debtor registry, transparency regime, and more.
 
 ## Available Tools
 
+### Variables Monetarias
 | Tool | Description |
 |------|-------------|
-| `bcra_variables_principales` | Current values of key monetary variables (reserves, exchange rate, inflation, etc.) |
-| `bcra_variable_historico` | Historical series for a variable by ID and date range |
-| `bcra_tipos_de_cambio` | List of available exchange rate types |
-| `bcra_cotizacion` | Currency quotations for a given date |
-| `bcra_deudores` | Current credit situation of a person or company |
-| `bcra_deudores_historico` | Credit history of a person or company |
-| `bcra_entidades_cheques` | List of financial entities for check queries |
-| `bcra_cheques_rechazados` | Rejected checks by CUIT |
-| `bcra_cheque_por_numero` | Look up a specific check by entity and number |
-| `bcra_entidades_financieras` | List of financial entities (transparency regime) |
-| `bcra_tasas` | Active and passive rates by financial entity |
+| `bcra_variables` | List monetary variables published by the BCRA (reserves, exchange rate, inflation, etc.) |
+| `bcra_variable_historico` | Historical series for a monetary variable by ID and date range |
 
-## Requirements
+### Estadísticas Cambiarias
+| Tool | Description |
+|------|-------------|
+| `bcra_divisas` | List all active ISO currencies with their denomination |
+| `bcra_cotizaciones` | Currency quotations published by the BCRA for a given date |
+| `bcra_evolucion_moneda` | Exchange rate evolution for a currency over a date range |
 
-- Python 3.13+
-- [Dev Container](https://containers.dev/) (recommended)
+### Central de Deudores
+| Tool | Description |
+|------|-------------|
+| `bcra_deudores` | Current credit situation of a person or company (debt, days overdue, status per entity) |
+| `bcra_deudores_historico` | Credit history for the last 24 months |
+| `bcra_cheques_rechazados` | Rejected checks and their reasons for a given CUIT/CUIL/CDI |
+
+### Cheques Denunciados
+| Tool | Description |
+|------|-------------|
+| `bcra_entidades_cheques` | List all banking entities with their entity codes |
+| `bcra_cheque` | Check if a specific check is registered as reported |
+
+### Régimen de Transparencia
+| Tool | Description |
+|------|-------------|
+| `bcra_cajas_ahorro` | Savings accounts offered by financial entities |
+| `bcra_paquetes_productos` | Product packages offered by financial entities |
+| `bcra_plazos_fijos` | Fixed-term deposit rates and conditions |
+| `bcra_prestamos_prendarios` | Pledge loan rates and conditions |
+| `bcra_prestamos_hipotecarios` | Mortgage loan rates and conditions |
+| `bcra_prestamos_personales` | Personal loan rates and conditions |
+| `bcra_tarjetas_credito` | Credit card rates and conditions |
 
 ## Installation
 
@@ -29,13 +47,13 @@ MCP server for Argentina's Central Bank (BCRA) APIs. Enables AI agents to access
 pip install mcp-bcra
 ```
 
-Or run directly with `uvx`:
+Or run directly without installing via `uvx`:
 
 ```bash
 uvx mcp-bcra
 ```
 
-## Usage with Claude
+## Usage with MCP clients
 
 Add to your MCP client configuration:
 
