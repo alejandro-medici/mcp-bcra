@@ -46,7 +46,7 @@ async def get_prestamos_prendarios(codigo_entidad: int | None = None) -> dict:
     params = {}
     if codigo_entidad is not None:
         params["codigoEntidad"] = codigo_entidad
-    return await get("/transparencia/v1.0/PrestamosPrendarios", params=params)
+    return await get("/transparencia/v1.0/Prestamos/Prendarios", params=params)
 
 
 async def get_prestamos_hipotecarios(codigo_entidad: int | None = None) -> dict:
@@ -58,7 +58,7 @@ async def get_prestamos_hipotecarios(codigo_entidad: int | None = None) -> dict:
     params = {}
     if codigo_entidad is not None:
         params["codigoEntidad"] = codigo_entidad
-    return await get("/transparencia/v1.0/PrestamosHipotecarios", params=params)
+    return await get("/transparencia/v1.0/Prestamos/Hipotecarios", params=params)
 
 
 async def get_prestamos_personales(codigo_entidad: int | None = None) -> dict:
@@ -70,7 +70,7 @@ async def get_prestamos_personales(codigo_entidad: int | None = None) -> dict:
     params = {}
     if codigo_entidad is not None:
         params["codigoEntidad"] = codigo_entidad
-    return await get("/transparencia/v1.0/PrestamosPersonales", params=params)
+    return await get("/transparencia/v1.0/Prestamos/Personales", params=params)
 
 
 async def get_tarjetas_credito(codigo_entidad: int | None = None) -> dict:

@@ -37,7 +37,7 @@ async def get_evolucion_moneda(
     """
     params: dict = {"limit": limit, "offset": offset}
     if fechadesde:
-        params["fechadesde"] = fechadesde
+        params["fechaDesde"] = fechadesde
     if fechahasta:
-        params["fechahasta"] = fechahasta
+        params["fechaHasta"] = fechahasta
     return await get(f"/estadisticascambiarias/v1.0/Cotizaciones/{moneda}", params=params)
