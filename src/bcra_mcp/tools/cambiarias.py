@@ -1,43 +1,17 @@
 from bcra_mcp.client import get
 
 
-async def get_divisas() -> dict:
-    """Lista todas las monedas ISO vigentes con su denominación."""
-    return await get("/estadisticascambiarias/v1.0/Maestros/Divisas")
+async def get_tipos_de_cambio() -> dict:
+    """Lista todos los tipos de cambio disponibles."""
+    return await get("/estadisticascambiarias/v1.0/Maestros/TiposDeCambio")
 
 
-async def get_cotizaciones(fecha: str | None = None) -> dict:
-    """Retorna todas las cotizaciones de divisas publicadas por el BCRA para una fecha.
-    Si no se ingresa fecha, devuelve la última cotización disponible.
+async def get_cotizacion(fecha: str, tipo_cambio: str = "BNA") -> dict:
+    """
+    Retorna la cotización de todas las monedas para una fecha dada.
 
     Args:
-        fecha: Fecha en formato YYYY-MM-DD (opcional)
+        fecha: Fecha en formato YYYY-MM-DD
+        tipo_cambio: Código del tipo de cambio (default: BNA - Banco Nación Argentina)
     """
-    params = {}
-    if fecha:
-        params["fecha"] = fecha
-    return await get("/estadisticascambiarias/v1.0/Cotizaciones", params=params)
-
-
-async def get_evolucion_moneda(
-    moneda: str,
-    fechadesde: str | None = None,
-    fechahasta: str | None = None,
-    limit: int = 1000,
-    offset: int = 0,
-) -> dict:
-    """Retorna la evolución de cotización de una moneda ISO en un rango de fechas.
-
-    Args:
-        moneda: Código ISO de la moneda (ej: "USD", "EUR", "BRL")
-        fechadesde: Fecha de inicio en formato YYYY-MM-DD (opcional)
-        fechahasta: Fecha de fin en formato YYYY-MM-DD (opcional)
-        limit: Cantidad máxima de registros, entre 10 y 1000
-        offset: Registros a descartar para paginado
-    """
-    params: dict = {"limit": limit, "offset": offset}
-    if fechadesde:
-        params["fechaDesde"] = fechadesde
-    if fechahasta:
-        params["fechaHasta"] = fechahasta
-    return await get(f"/estadisticascambiarias/v1.0/Cotizaciones/{moneda}", params=params)
+    return await get(f"/estadisticascambiarias/v1.0/Cotizaciones/{tipo_cambio}/{fecha}")
