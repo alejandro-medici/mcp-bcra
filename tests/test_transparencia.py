@@ -46,7 +46,9 @@ async def test_get_cajas_ahorro():
 
 @pytest.mark.asyncio
 async def test_get_cajas_ahorro_filtrado():
-    with patch("bcra_mcp.tools.transparencia.get", new=AsyncMock(return_value=MOCK_RESPONSE_FILTRADO)):
+    with patch(
+        "bcra_mcp.tools.transparencia.get", new=AsyncMock(return_value=MOCK_RESPONSE_FILTRADO)
+    ):
         result = await get_cajas_ahorro(codigo_entidad=11)
         assert result["status"] == 200
         assert result["results"][0]["codigoEntidad"] == 11

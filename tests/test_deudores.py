@@ -10,7 +10,9 @@ MOCK_DEUDORES = {
         "periodos": [
             {
                 "periodo": "202407",
-                "entidades": [{"entidad": "BANCO DE LA NACION ARGENTINA", "situacion": 1, "monto": 59.0}],
+                "entidades": [
+                    {"entidad": "BANCO DE LA NACION ARGENTINA", "situacion": 1, "monto": 59.0}
+                ],
             }
         ],
     },
@@ -18,7 +20,11 @@ MOCK_DEUDORES = {
 
 MOCK_HISTORICO = {
     "status": 200,
-    "results": {"identificacion": 20123456789, "denominacion": "GARCIA JUAN CARLOS", "periodos": []},
+    "results": {
+        "identificacion": 20123456789,
+        "denominacion": "GARCIA JUAN CARLOS",
+        "periodos": [],
+    },
 }
 
 MOCK_CHEQUES = {

@@ -17,7 +17,9 @@ MOCK_CHEQUE_DENUNCIADO = {
         "denunciado": True,
         "fechaProcesamiento": "2024-05-24",
         "denominacionEntidad": "BANCO DE LA NACION ARGENTINA",
-        "detalles": [{"sucursal": 524, "numeroCuenta": 5240055962, "causal": "Denunciado por tercero"}],
+        "detalles": [
+            {"sucursal": 524, "numeroCuenta": 5240055962, "causal": "Denunciado por tercero"}
+        ],
     },
 }
 
