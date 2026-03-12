@@ -17,14 +17,14 @@ async def get_variables(
         offset: Registros a descartar para paginado
         limit: Cantidad máxima de registros (max 1000)
     """
-    params: dict = {"offset": offset, "limit": limit}
+    params: dict = {"Offset": offset, "Limit": limit}
     if id_variable is not None:
-        params["idVariable"] = id_variable
+        params["IdVariable"] = id_variable
     if categoria:
-        params["categoria"] = categoria
+        params["Categoria"] = categoria
     if periodicidad:
-        params["periodicidad"] = periodicidad
-    return await get("/estadisticas/v4.0/monetarias", params=params)
+        params["Periodicidad"] = periodicidad
+    return await get("/estadisticas/v4.0/Monetarias", params=params)
 
 
 async def get_variable_historico(
@@ -43,9 +43,9 @@ async def get_variable_historico(
         offset: Registros a descartar para paginado
         limit: Cantidad máxima de registros (max 3000)
     """
-    params: dict = {"offset": offset, "limit": limit}
+    params: dict = {"Offset": offset, "Limit": limit}
     if desde:
-        params["desde"] = desde
+        params["Desde"] = desde
     if hasta:
-        params["hasta"] = hasta
-    return await get(f"/estadisticas/v4.0/monetarias/{id_variable}", params=params)
+        params["Hasta"] = hasta
+    return await get(f"/estadisticas/v4.0/Monetarias/{id_variable}", params=params)

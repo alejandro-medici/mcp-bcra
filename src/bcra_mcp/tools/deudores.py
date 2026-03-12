@@ -8,7 +8,7 @@ async def get_deudores(identificacion: str) -> dict:
     Args:
         identificacion: CUIT/CUIL/CDI de 11 dígitos sin guiones ni espacios
     """
-    return await get(f"/CentralDeDeudores/v1.0/Deudas/{identificacion}")
+    return await get(f"/centraldedeudores/v1.0/Deudas/{identificacion}")
 
 
 async def get_deudores_historico(identificacion: str) -> dict:
@@ -17,7 +17,7 @@ async def get_deudores_historico(identificacion: str) -> dict:
     Args:
         identificacion: CUIT/CUIL/CDI de 11 dígitos sin guiones ni espacios
     """
-    return await get(f"/CentralDeDeudores/v1.0/Deudas/Historicas/{identificacion}")
+    return await get(f"/centraldedeudores/v1.0/Deudas/Historicas/{identificacion}")
 
 
 async def get_cheques_rechazados(identificacion: str) -> dict:
@@ -26,4 +26,4 @@ async def get_cheques_rechazados(identificacion: str) -> dict:
     Args:
         identificacion: CUIT/CUIL/CDI de 11 dígitos sin guiones ni espacios
     """
-    return await get(f"/CentralDeDeudores/v1.0/Deudas/ChequesRechazados/{identificacion}")
+    return await get(f"/centraldedeudores/v1.0/Deudas/ChequesRechazados/{identificacion}")
