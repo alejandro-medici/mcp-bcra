@@ -1,4 +1,3 @@
-import asyncio
 from mcp.server.fastmcp import FastMCP
 
 from bcra_mcp.tools import variables, cambiarias, deudores, cheques, transparencia
