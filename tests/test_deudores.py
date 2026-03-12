@@ -8,23 +8,12 @@ MOCK_DEUDORES = {
         "identificacion": 20123456789,
         "denominacion": "GARCIA JUAN CARLOS",
         "periodos": [
-            {
-                "periodo": "2024-01",
-                "entidades": [
-                    {"entidad": 11, "situacion": 1, "monto": 150000}
-                ]
-            }
-        ]
-    }
+            {"periodo": "2024-01", "entidades": [{"entidad": 11, "situacion": 1, "monto": 150000}]}
+        ],
+    },
 }
 
-MOCK_HISTORICO = {
-    "status": 200,
-    "results": {
-        "identificacion": 20123456789,
-        "periodos": []
-    }
-}
+MOCK_HISTORICO = {"status": 200, "results": {"identificacion": 20123456789, "periodos": []}}
 
 
 @pytest.mark.asyncio

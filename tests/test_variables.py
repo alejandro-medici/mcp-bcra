@@ -5,9 +5,21 @@ from bcra_mcp.tools.variables import get_principales_variables, get_variable_his
 MOCK_VARIABLES = {
     "status": 200,
     "results": [
-        {"idVariable": 1, "cdSerie": 246, "descripcion": "Reservas Internacionales del BCRA (en millones de USD)", "fecha": "2024-01-10", "valor": 23063.0},
-        {"idVariable": 4, "cdSerie": 7927, "descripcion": "Tipo de Cambio Minorista ($ por USD) Promedio vendedor", "fecha": "2024-01-10", "valor": 808.39},
-    ]
+        {
+            "idVariable": 1,
+            "cdSerie": 246,
+            "descripcion": "Reservas Internacionales del BCRA (en millones de USD)",
+            "fecha": "2024-01-10",
+            "valor": 23063.0,
+        },
+        {
+            "idVariable": 4,
+            "cdSerie": 7927,
+            "descripcion": "Tipo de Cambio Minorista ($ por USD) Promedio vendedor",
+            "fecha": "2024-01-10",
+            "valor": 808.39,
+        },
+    ],
 }
 
 MOCK_HISTORICO = {
@@ -15,7 +27,7 @@ MOCK_HISTORICO = {
     "results": [
         {"idVariable": 1, "fecha": "2024-01-02", "valor": 23100.0},
         {"idVariable": 1, "fecha": "2024-01-03", "valor": 23050.0},
-    ]
+    ],
 }
 
 

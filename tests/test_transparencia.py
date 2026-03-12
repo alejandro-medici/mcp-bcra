@@ -7,7 +7,7 @@ MOCK_ENTIDADES = {
     "results": [
         {"codigoEntidad": 11, "denominacion": "BANCO DE LA NACION ARGENTINA"},
         {"codigoEntidad": 72, "denominacion": "BANCO SANTANDER ARGENTINA S.A."},
-    ]
+    ],
 }
 
 MOCK_TASAS = {
@@ -15,7 +15,7 @@ MOCK_TASAS = {
     "results": [
         {"codigo": 1, "descripcion": "Tasa Nominal Anual para Préstamos Personales", "valor": 97.0},
         {"codigo": 2, "descripcion": "Tasa Nominal Anual para Caja de Ahorro", "valor": 40.0},
-    ]
+    ],
 }
 
 

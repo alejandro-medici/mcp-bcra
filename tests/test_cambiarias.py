@@ -7,7 +7,7 @@ MOCK_TIPOS = {
     "results": [
         {"codigo": "BNA", "descripcion": "Banco de la Nación Argentina"},
         {"codigo": "BCO", "descripcion": "Banco Central"},
-    ]
+    ],
 }
 
 MOCK_COTIZACION = {
@@ -16,9 +16,14 @@ MOCK_COTIZACION = {
         "tipoCambio": "BNA",
         "fecha": "2024-01-10",
         "detalle": [
-            {"codigoMoneda": "USD", "descripcion": "Dólar Estadounidense", "tipoPase": "V", "valor": 808.39},
-        ]
-    }
+            {
+                "codigoMoneda": "USD",
+                "descripcion": "Dólar Estadounidense",
+                "tipoPase": "V",
+                "valor": 808.39,
+            },
+        ],
+    },
 }
 
 

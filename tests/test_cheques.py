@@ -7,17 +7,10 @@ MOCK_ENTIDADES = {
     "results": [
         {"codigoEntidad": 11, "denominacion": "BANCO DE LA NACION ARGENTINA"},
         {"codigoEntidad": 72, "denominacion": "BANCO SANTANDER ARGENTINA S.A."},
-    ]
+    ],
 }
 
-MOCK_CHEQUES = {
-    "status": 200,
-    "results": {
-        "numeroCuenta": "0",
-        "causal": "0",
-        "cheques": []
-    }
-}
+MOCK_CHEQUES = {"status": 200, "results": {"numeroCuenta": "0", "causal": "0", "cheques": []}}
 
 MOCK_CHEQUE = {
     "status": 200,
@@ -25,8 +18,8 @@ MOCK_CHEQUE = {
         "numeroCheque": 12345678,
         "codigoEntidad": 11,
         "denominacion": "BANCO DE LA NACION ARGENTINA",
-        "causal": "2"
-    }
+        "causal": "2",
+    },
 }
 
 
